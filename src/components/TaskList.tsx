@@ -30,7 +30,7 @@ export function TaskList() {
   }
 
   function handleToggleTaskCompletion(id: number) {
-    const taskFiltered = tasks.map((task) => {
+    const teskCompletes = tasks.map((task) => {
       if (task.id === id) {
         return {
           ...task,
@@ -41,11 +41,17 @@ export function TaskList() {
       }
     });
 
-    setTasks(taskFiltered);
+    setTasks(teskCompletes);
   }
 
   function handleRemoveTask(id: number) {
-    // Remova uma task da listagem pelo ID
+    const taskFiltered = tasks.filter((task) => {
+      if (task.id !== id) {
+        return task;
+      }
+    });
+
+    setTasks(taskFiltered);
   }
 
   return (
